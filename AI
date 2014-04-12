@@ -1,4 +1,4 @@
-public class AI(){
+public class AI{
   
   private int moveX,moveY,moveZ;
   
