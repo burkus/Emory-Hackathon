@@ -27,9 +27,6 @@ PVector tool_stabilized;
 PVector tool_velocity;
 PVector tool_direction;
 
-int     touch_zone;
-float   touch_distance;
-
 float device_horizontal_view_angle;
 float device_verical_view_angle;
 float device_range;
