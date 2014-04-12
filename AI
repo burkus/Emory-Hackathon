@@ -1,0 +1,38 @@
+public class AI(){
+  
+  private int moveX,moveY,moveZ;
+  
+  public AI(){
+    
+    moveX = 200;
+    moveY = 200;
+    moveZ = -200;
+    
+  }
+ 
+  public void act(){
+    
+    //Set tracing values
+    moveX = ball.getX() + 40;
+    moveY = ball.getY() + 50;
+  
+    //Movement
+    pushMatrix();
+    stroke(0);
+    fill(0,0,255);
+    translate(moveX,moveY,moveZ);
+    box(80,100,15);
+    popMatrix();
+    
+    //Collision test
+    if ((ball.getX <= (moveX + 40)) && (ball.getX >= (moveX - 40))){
+       if ((ball.getY <= (moveX + 50)) && (ball.getX >= (moveX - 50))){
+          if (ball.getZ == -150){
+            ball.bounce();
+          }
+       }
+    }
+   
+  }
+  
+}
