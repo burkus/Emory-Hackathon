@@ -1,0 +1,108 @@
+//Ball class
+
+class ball{
+ private final float GRAVITY = -.4;
+ private float x;
+ private float y;
+ private float z;
+ private float dx;
+ private float dy;
+ private float dz;
+ private int size;
+  
+  public ball(){
+  x = height/2;
+  y = width/4;
+  z = -100;
+  size = 50;
+  } 
+  
+  void drawBall(){
+   pushMatrix();
+   translate(x,y,z);
+   fill(255,0,0);
+  sphere(size);
+  popMatrix(); 
+y +=dy;
+x +=dx;
+z +=dz;
+  
+}
+  
+  void applyGravity(){
+    dy -= GRAVITY;
+    y -= GRAVITY;
+  }
+  
+  public float getX(){
+   return x; 
+  }
+  public float getY(){
+   return y; 
+  }
+  public float getZ(){
+   return z; 
+  }
+  public float getDX(){
+   return dx; 
+  }
+  public float getDY(){
+   return dy; 
+  }
+  public float getDZ(){
+   return dz; 
+  }
+  
+  void setX(float sx){
+    x = sx;
+  }
+  void setY(float sy){
+    y = sy;
+  }
+  void setZ(float sz){
+    z = sz;
+  }
+  void setDX(float sdx){
+    dx = sdx;
+  }
+  void setDY(float sdy){
+    dy = sdy;
+  }
+  void setDZ(float sdz){
+    dz = sdz;
+  } 
+  
+  void testCollisions(){
+    if(y >= height-40){
+     dy = -dy;
+    y += GRAVITY; 
+    }
+    if(dx >= 20){
+     dx--; 
+    }
+    if(dx <= -20){
+      dx++;
+    }
+     if(dy >= 20){
+     dy--; 
+    }
+    if(dy <= -20){
+      dy++;
+    }
+     if(dz >= 20){
+     dz--; 
+    }
+    if(dz <= -20){
+      dz++;
+    }
+   
+  }
+  
+  void bounce(){
+    dz = -dz;
+    dx = dx + (random(10)-5);
+    points++;
+  }
+ 
+ 
+ }
