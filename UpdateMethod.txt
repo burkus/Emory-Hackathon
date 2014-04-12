@@ -14,11 +14,11 @@ void setup(){
 }
 
 void draw(){
- update();
+ update(leap);
 }
 
 
-void update(){
+void update(LeapMotion leap){
 
      for(Hand hand : leap.getHands()){
             //Hands
