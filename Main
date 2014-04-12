@@ -1,0 +1,53 @@
+//LeapBall
+import de.voidplus.leapmotion.*;
+import development.*;
+
+
+//fields
+short frame;
+ball b;
+int frameX;
+int frameY;
+int frameZ;
+
+int points;
+
+
+
+LeapMotion leap;
+
+
+void setup(){
+  frameX = displayWidth/1;
+  frameY = displayHeight/1;
+  frameZ = 0;
+  leap = new LeapMotion(this);
+  points = 0;
+  
+  size(frameX, frameY, P3D);
+  noCursor();
+  b = new ball();
+
+}
+
+
+void draw(){
+   translate(width/100, height/100,0);
+  background(0);
+  b.drawBall();
+drawEnvironment();
+b.applyGravity();
+b.testCollisions();
+ update();
+}
+
+void drawEnvironment(){
+pushMatrix();
+fill(150);
+translate(frameX/2,frameY,0);
+box(1000,1,1000);
+popMatrix();
+}
+
+  
+  
