@@ -1,0 +1,35 @@
+Variables to initialize inside main:
+
+int     hand_id;         
+PVector hand_position;   
+PVector hand_stabilized; 
+PVector hand_direction;  
+PVector hand_dynamics;   
+float   hand_roll;       
+
+float   hand_pitch;      
+float   hand_yaw;        
+PVector sphere_position; 
+float   sphere_radius;   
+
+int     finger_id;        
+PVector finger_position;  
+PVector finger_stabilized;
+PVector finger_velocity;  
+PVector finger_direction; 
+
+int     touch_zone;    
+float   touch_distance;
+
+int     tool_id;        
+PVector tool_position;  
+PVector tool_stabilized;
+PVector tool_velocity;
+PVector tool_direction;
+
+int     touch_zone;
+float   touch_distance;
+
+float device_horizontal_view_angle;
+float device_verical_view_angle;
+float device_range;
