@@ -1,33 +1,32 @@
-/**
-*@author Andrew Burkus
-*GUI
-  */
-import com.leapmotion.leap.processing.*;
 import com.leapmotion.leap.Frame;
 import com.leapmotion.leap.Gesture;
 import com.leapmotion.leap.processing.LeapMotion;
 import com.leapmotion.leap.Controller;
 
+PImage img;
 LeapMotion leapMotion;
-int [] buttons = new int [3];
-PVector [] vectors = new PVector[3];
+PVector mousepos;
 int index;
-PImage Background;
+PVector[] vectors;
+
 void setup() {
-  size(displayWidth, displayHeight, P3D);
-  textSize(48);
-  Background = loadImage("background.jpg");
-  Background.resize(displayWidth, displayHeight);
-  leapMotion = new LeapMotion(this);
-  index = 0;
- ///vectors[0] = new PVector(//add button COORDS);
-  //vectors[1] = new PVector(//^);
-  //vectors[2] = new PVector(//^);
+ size(displayWidth, displayHeight, P3D);
+ leapMotion = new LeapMotion(this);
+ img = loadImage("background.jpg");
+ img.resize(displayWidth, displayHeight-160);
+ frameRate(1);
+ vectors = new PVector[3];
+ vectors[0] = new PVector(1030, 215);
+ vectors[1] = new PVector(1070, 280);
+ vectors[2] = new PVector(1105, 340);
+ index = 0;
 }
 
 void draw() {
-  image(Background, 0, 0);
+  mousepos = new PVector(mouseX, mouseY);
+  image(img, 0, 0);
   drawBox(vectors[index]);
+  System.out.println(mousepos);
 }
  
 void drawBox(PVector vector){
@@ -35,17 +34,21 @@ void drawBox(PVector vector){
   colorMode(RGB);
   stroke(155);
   pushMatrix();
-  translate(vector.x, vector.y, 0);
-  lights();
-  rect(0, 0, 150, 78);
+  //translate(vector.x, vector.y, 0);
+  rect(vector.x, vector.y, 150, 70);
   spotLight(255, 0, 0, 0, 0, 10, 
           0, -1, 0, PI/4, 1);
   popMatrix();
 }
 
 void moveIndex(){
-  index++;
+  if(index >= 0 && index < 2)
+    index ++;
+  if(index >= 3)
+    index = 0;
+    
 }
+
 
 void onInit(final Controller controller)
 {
@@ -67,8 +70,7 @@ void onFrame(final Controller controller)
      text("Hi", 50, 50);
     }
     else if ("TYPE_KEY_TAP".equals(gesture.type().toString()) && "STATE_STOP".equals(gesture.state().toString())) {
-     fill(155);
-      text("No!", 50, 50);
+  
     }
     else if ("TYPE_SWIPE".equals(gesture.type().toString()) && "STATE_START".equals(gesture.state().toString())) {
       moveIndex();
@@ -79,4 +81,4 @@ void onFrame(final Controller controller)
     }
     println("gesture " + gesture + " id " + gesture.id() + " type " + gesture.type() + " state " + gesture.state() + " duration " + gesture.duration() + " durationSeconds " + gesture.durationSeconds()); 
   }
-}
+} 
