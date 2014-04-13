@@ -33,7 +33,7 @@ void update(LeapMotion leap){
           hand_yaw         = hand.getYaw();
           sphere_position  = hand.getSpherePosition();
           sphere_radius    = hand.getSphereRadius();
-    
+    	  num_fingers 	   = hand.getFingers().size();
             // FINGERS
             for(Finger finger : hand.getFingers()){
     

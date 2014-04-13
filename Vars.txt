@@ -30,3 +30,5 @@ PVector tool_direction;
 float device_horizontal_view_angle;
 float device_verical_view_angle;
 float device_range;
+
+float num_fingers;
