@@ -1,0 +1,53 @@
+import ddf.minim.*;
+
+Minim m = new Minim(this);
+AudioPlayer sound;
+
+void playerHit(){
+  sound.loadFile("glassHit.wav", 1024);
+  sound.play(); 
+}
+
+void AIHit(){
+  sound.loadFile("glassHitAI.wav", 1024);
+  sound.play(); 
+}
+
+void gravelHit(){
+  sound.loadFile("gravelHit.wav", 1024);
+  sound.play(); 
+}
+
+void hover(){
+  sound.loadFile("hoverSelect.wav", 1024);
+  sound.play(); 
+}
+
+void finalSelect(){
+  sound.loadFile("finalSelect.wav", 1024);
+  sound.play(); 
+}
+
+void playerHit(){
+  sound.loadFile("glassHit.wav", 1024);
+  sound.play(); 
+}
+
+void gameStart(){
+  sound.loadFile("gameStart.wav", 1024);
+  sound.play(); 
+}
+
+void gameWin(){
+  sound.loadFile("gameWin.wav", 1024);
+  sound.play(); 
+}
+
+void gameLose(){
+  sound.loadFile("gameLose.wav", 1024);
+  sound.play(); 
+}
+
+m.stop();
+sound.stop();
+super.stop();
